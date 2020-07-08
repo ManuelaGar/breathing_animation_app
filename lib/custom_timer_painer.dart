@@ -14,12 +14,12 @@ class CustomTimerPainter1 extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = backgroundColor
-      ..strokeWidth = 10.0
+      ..strokeWidth = 15.0
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
     canvas.drawCircle(size.center(Offset.zero), size.width / 2.0, paint);
-    paint.color = Colors.green;
+    paint.color = Color(0xFF0066B1);
     double progress = (1.0 - animation.value) * 2 * math.pi * (4 / 19);
     canvas.drawArc(Offset.zero & size, math.pi * 1.5, progress, false, paint);
   }
@@ -44,12 +44,11 @@ class CustomTimerPainter2 extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = backgroundColor
-      ..strokeWidth = 10.0
+      ..strokeWidth = 15.0
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
-    //canvas.drawCircle(size.center(Offset.zero), size.width / 2.0, paint);
-    paint.color = Colors.red;
+    paint.color = Color(0xFF008CCE);
     double progress = (1.0 - animation.value) * 2 * math.pi * (7 / 19);
     canvas.drawArc(
         Offset.zero & size, math.pi * (173 / 90), progress, false, paint);
@@ -75,12 +74,12 @@ class CustomTimerPainter3 extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = backgroundColor
-      ..strokeWidth = 10.0
+      ..strokeWidth = 15.0
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
     //canvas.drawCircle(size.center(Offset.zero), size.width / 2.0, paint);
-    paint.color = Colors.amber;
+    paint.color = Color(0xFF52B8E6);
     double progress = (1.0 - animation.value) * 2 * math.pi * (8 / 19);
     canvas.drawArc(
         Offset.zero & size, math.pi * (479 / 180), progress, false, paint);

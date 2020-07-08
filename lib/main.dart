@@ -1,3 +1,4 @@
+//import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'custom_timer_painer.dart';
 
@@ -41,9 +42,21 @@ class _CountDownTimerState extends State<CountDownTimer>
   ];
 
   String get timerString {
-    Duration duration = controller.duration * controller.value;
-    String setTime = '${duration.inSeconds}';
-    return controller.value == 0 ? '0' : setTime;
+    Duration duration =
+        controller.duration * controller.value + Duration(milliseconds: 999);
+    return '${duration.inSeconds}';
+  }
+
+  String get timerText {
+    if (controller == controller1) {
+      return 'Inhala';
+    } else if (controller == controller2) {
+      return 'Sosten';
+    }
+    if (controller == controller3) {
+      return 'Exhala';
+    }
+    return 'Preparate!';
   }
 
   @override
@@ -142,16 +155,23 @@ class _CountDownTimerState extends State<CountDownTimer>
                                 Align(
                                   alignment: FractionalOffset.center,
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
+                                        timerText,
+                                        style: TextStyle(
+                                          fontSize: 30.0,
+                                          color: Color(0xFF1D1E33),
+                                        ),
+                                      ),
+                                      Text(
                                         timerString,
                                         style: TextStyle(
-                                            fontSize: 112.0,
-                                            color: Colors.blue),
+                                          fontSize: 112.0,
+                                          color: Color(0xFF1D1E33),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -190,3 +210,11 @@ class _CountDownTimerState extends State<CountDownTimer>
     );
   }
 }
+
+/*
+Duration duration;
+if (Platform.isIOS) {
+duration = controller.duration * controller.value + Duration(seconds: 1);
+} else {
+duration = controller.duration * controller.value;
+}*/
